@@ -33,7 +33,7 @@ def get_services():
     )
 
 def main():
-    # 0. Читаем ТВОЙ готовый скрипт из файла
+    # 0. Читаем ВАШ готовый скрипт из файла
     try:
         with open('my_script.gs', 'r', encoding='utf-8') as f:
             user_gs_code = f.read()
@@ -63,7 +63,7 @@ def main():
     screenshot_files = ['screen1.png', 'screen2.png', 'screen3.png']
     uploaded_ids = []
     
-    # Создаем фиктивные файлы для теста, если их нет (чтобы код не упал у тебя)
+    # Создаем фиктивные файлы для теста, если их нет (чтобы код не упал)
     for s in screenshot_files:
         if not os.path.exists(s):
             with open(s, 'w') as f: f.write('dummy image')
@@ -76,7 +76,7 @@ def main():
 
     # 3. Копируем презентацию
     print("Копируем презентацию...")
-    original_pres_id = 'INSERT_YOUR_PRES_ID_HERE' # <--- ВСТАВЬ СЮДА ID ОРИГИНАЛА ПРЕЗЕНТАЦИИ
+    original_pres_id = 'INSERT_YOUR_PRES_ID_HERE' # <--- ВСТАВИТЬ СЮДА ID ОРИГИНАЛА ПРЕЗЕНТАЦИИ
     if original_pres_id == 'INSERT_YOUR_PRES_ID_HERE':
         print("!!! Вы не вставили ID презентации в коде. Пропускаем этот шаг для теста.")
         new_pres_id = "нет_id"
@@ -100,7 +100,7 @@ def main():
         valueInputOption="RAW", body=body
     ).execute()
 
-    # 5. Вставляем твой скрипт в таблицу
+    # 5. Вставляем Ваш скрипт в таблицу
     print("Внедряем ваш Google Apps Script...")
     script_project = script_service.projects().create(
         body={'title': 'Embedded Script', 'parentId': ss_id}
